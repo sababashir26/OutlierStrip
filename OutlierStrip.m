@@ -10,10 +10,10 @@ function OutlierStrip()
     wavenumberDimension = 0; % This will be set based on user input
     
     % GUI component positions
-    dropdownPos = [20, 50, 200, 20];
-    deleteButtonPos = [230, 50, 180, 20];
-    prevButtonPos = [420, 50, 90, 20];
-    nextButtonPos = [520, 50, 90, 20];
+    dropdownPos = [140, 50, 200, 20];
+    deleteButtonPos = [360, 50, 180, 20];
+    prevButtonPos = [560, 50, 90, 20];
+    nextButtonPos = [670, 50, 90, 20];
 
     % Ask the user whether they want to enter prefixes, suffixes, or both
     choice = questdlg('Filter variables by:', ...
