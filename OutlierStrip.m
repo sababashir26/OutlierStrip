@@ -121,7 +121,7 @@ function OutlierStrip()
         if ~isempty(markedForDeletion) && ~isempty(selectedVariable)
             % Remove marked spectra from data
             spectra = evalin('base', selectedVariable);
-            spectra(markedForDeletion, :) = [];
+            spectra(:,markedForDeletion) = [];
             % Update variable in base workspace
             assignin('base', selectedVariable, spectra);
             % Clear marked indices and replot
