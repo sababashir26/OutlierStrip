@@ -1,5 +1,5 @@
 # OutlierStrip
-OutlierStrip is a MATLAB tool designed to empower researchers and data analysts working with spectral data to efficiently identify and remove outliers. By offering an interactive graphical user interface (GUI), OutlierStrip simplifies the process of refining spectral datasets, ensuring cleaner data for further analysis or modeling tasks.
+OutlierStrip offers an interactive graphical user interface (GUI) designed to empower researchers and data analysts working with spectral data to efficiently identify and remove outliers, ensuring cleaner data for further analysis or modelling tasks.
 
 ### Core Features:
 
@@ -8,12 +8,11 @@ OutlierStrip is a MATLAB tool designed to empower researchers and data analysts 
    - Suffixes: Enter a comma-separated list of suffixes. The tool will filter in variables ending with these suffixes.
    - Both: If you choose both, you'll provide both prefixes and suffixes, allowing for highly specific variable filtering.
      
-- Smart Orientation Adjustment: After variable selection, you'll input the expected dimension (e.g., 660) that represents the number of wavenumbers. This dimension helps OutlierStrip understand the data structure, ensuring that spectra are plotted with wavenumbers along the x-axis. It's a critical step for datasets where the orientation isn't standardized.
+- Smart Orientation Adjustment: After variable selection, you'll input the expected wavenumber dimension (e.g., 660) which helps OutlierStrip understand the data structure, ensuring that spectra are plotted with wavenumbers along the x-axis. It's a critical step for datasets where the orientation isn't standardized.
   
-- Visualize Spectra: Upon selecting a variable, its spectral data is plotted in the main viewing area. This visual representation is key to identifying outliers—spectra that deviate significantly from the norm.
-Interactive Plotting: indicating they've been selected for removal.
+- Visualize Spectra: Upon selecting a variable, its spectral data is plotted in the main viewing area. This visual representation is key to identifying outliers in spectra that deviate significantly from the norm.
 
-- Manually Mark and Remove Outliers: Click on individual spectra directly within the plot to mark them. Marked spectra might be highlighted in red colour. This manual selection process ensures you have full control over which data points are considered outliers. Once you've selected all outliers, click the 'Delete Marked Spectra' button to remove them from the dataset.
+- Manually Mark and Remove Outliers: Click on individual spectra directly within the plot to mark them. Marked spectra might be highlighted in red colour. This manual selection process ensures you have full control over which data points are considered outliers. Once you've selected all outliers, click the 'Delete Marked Spectra' button to remove them from the dataset in the MATLAB workspace.
 
 # Quick Start Guide:
 
