@@ -172,7 +172,12 @@ function OutlierStrip()
         variableDropdown.Value = currentIndex; % Update dropdown selection
         markedForDeletion = []; % Reset marked indices
         startSpectrum = 1; % Reset start spectrum when variable changes
-        endSpectrum = size(evalin('base', selectedVariable), 1); % Set end spectrum to total spectra count for the selected variable
+        spectraSize = size(evalin('base', selectedVariable));
+        if spectraSize(2) == wavenumberDimension
+            endSpectrum = spectraSize(1);
+        else
+            endSpectrum = spectraSize(2);
+        end
         updateStartEndEditFields();
         plotSpectra(); % Plot spectra for selected variable
     end
@@ -193,7 +198,7 @@ function OutlierStrip()
     function onEndChanged(~, ~)
         endStr = endEdit.String;
         endVal = str2double(endStr);
-        if ~isnan(endVal) && endVal >= startSpectrum && endVal <= size(evalin('base', selectedVariable), 1)
+        if ~isnan(endVal) && endVal >= startSpectrum && endVal <= endSpectrum
             endSpectrum = endVal;
             plotSpectra();
         else
@@ -261,6 +266,16 @@ function OutlierStrip()
             % Update the variable in the base workspace with the modified spectra
             assignin('base', selectedVariable, spectra);
 
+            % Update spectrum limits based on new data size
+            spectraSize = size(spectra);
+            if spectraSize(2) == wavenumberDimension
+                endSpectrum = spectraSize(1);
+            else
+                endSpectrum = spectraSize(2);
+            end
+            startSpectrum = min(startSpectrum, endSpectrum);
+            updateStartEndEditFields();
+
             % Clear marked indices and replot
             markedForDeletion = [];
             plotSpectra();
@@ -285,6 +300,16 @@ function OutlierStrip()
             end
             % Update the variable in the base workspace with the modified spectra
             assignin('base', selectedVariable, spectra);
+
+            % Update spectrum limits based on new data size
+            spectraSize = size(spectra);
+            if spectraSize(2) == wavenumberDimension
+                endSpectrum = spectraSize(1);
+            else
+                endSpectrum = spectraSize(2);
+            end
+            startSpectrum = min(startSpectrum, endSpectrum);
+            updateStartEndEditFields();
 
             % Clear marked indices and replot
             markedForDeletion = [];
